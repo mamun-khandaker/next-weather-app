@@ -24,7 +24,9 @@ const Tempapp = () => {
 
   const handleKeypress = (e) => {
     if (e.keyCode === 13) {
-      fetchData();
+      if (search) {
+        fetchData();
+      }
     }
   };
 
