@@ -9,7 +9,9 @@ function Details({ details }) {
   return (
     <div className="box-large">
       <h1 className="title-main">Details weather report</h1>
-      <div className="city-name">{city}</div>
+      <div className="city-name">
+        {city} <span className="country">{details?.sys?.country}</span>
+      </div>
 
       <div className={styles.detailsReport}>
         <div className={styles.details}>
