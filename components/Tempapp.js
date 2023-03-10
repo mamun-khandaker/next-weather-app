@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 
 const Tempapp = () => {
   const [search, setSearch] = useState("Dhaka");
@@ -14,9 +15,7 @@ const Tempapp = () => {
 
       const data = await response.json();
       setCity(data);
-    } catch (error) {
-      setError(true);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {
@@ -26,12 +25,11 @@ const Tempapp = () => {
   const handleKeypress = (e) => {
     if (e.keyCode === 13) {
       fetchData();
-      console.log("enter pressed");
     }
   };
 
   return (
-    <>
+    <div className="box">
       <h1 className="title-main">Weather app</h1>
 
       <div className="input-city">
@@ -57,9 +55,6 @@ const Tempapp = () => {
         <p>City not found</p>
       ) : (
         <>
-          {/* <div className="city-name">
-            {search} <span className="country">{city?.sys?.country}</span>
-          </div> */}
           <div className="city-name">
             {city?.name} <span className="country">{city?.sys?.country}</span>
           </div>
@@ -75,9 +70,15 @@ const Tempapp = () => {
               Wind: <span className="city-temp">{city?.wind?.speed} km/h</span>
             </div>
           </div>
+
+          <div className="detailsButton">
+            <Link href={`${city?.name}`} className="button">
+              Details Report
+            </Link>
+          </div>
         </>
       )}
-    </>
+    </div>
   );
 };
 

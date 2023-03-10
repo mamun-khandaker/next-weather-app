@@ -23,8 +23,22 @@ a {
   text-decoration: none;
 }
 
+.box,
+.box-large {
+  max-width: 500px;
+  margin: auto;
+  padding: 25px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.box-large {
+  max-width: 800px;
+}
+
 .title-main {
   margin: 0 0 2rem;
+  text-align: center;
 }
 
 .input-city {
@@ -45,9 +59,11 @@ a {
 }
 
 .button {
+  display: inline-block;
   padding: 1rem 2rem;
   border: none;
   cursor: pointer;
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .city-name {
@@ -77,8 +93,19 @@ a {
   justify-content: space-around;
   gap: 1rem;
   font-size: 1.6rem;
+  margin: 0 0 3.5rem;
 
   .city-temp {
     font-size: 1.6rem;
+  }
+}
+
+.detailsButton {
+  text-align: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+
+  .button {
+    padding: 1.4rem 2rem;
+    border-radius: 0 0 4px 4px;
   }
 }
