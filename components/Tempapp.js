@@ -23,6 +23,13 @@ const Tempapp = () => {
     fetchData();
   }, []);
 
+  const handleKeypress = (e) => {
+    if (e.keyCode === 13) {
+      fetchData();
+      console.log("enter pressed");
+    }
+  };
+
   return (
     <>
       <h1 className="title-main">Weather app</h1>
@@ -34,20 +41,19 @@ const Tempapp = () => {
           placeholder="Enter city name"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
+          onKeyDown={handleKeypress}
         />
 
-        {search.length < 1 ? (
-          <button disabled className="button">
-            Search
-          </button>
-        ) : (
-          <button onClick={fetchData} className="button">
-            Search
-          </button>
-        )}
+        <button
+          disabled={search.length < 1}
+          onClick={fetchData}
+          className="button"
+        >
+          Search
+        </button>
       </div>
 
-      {city?.cod === "404" || search === "" ? (
+      {city?.cod === "404" ? (
         <p>City not found</p>
       ) : (
         <>
